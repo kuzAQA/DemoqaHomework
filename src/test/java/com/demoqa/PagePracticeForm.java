@@ -2,9 +2,6 @@ package com.demoqa;
 
 import com.codeborne.selenide.SelenideElement;
 
-import java.util.Arrays;
-import java.util.List;
-
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -62,22 +59,6 @@ public class PagePracticeForm {
 
     SelenideElement cityParent = $("#city");
     SelenideElement selectCity = $(byText(city));
-
-    public Boolean validationTable() {
-        List<String> expectedResult = Arrays.asList( //ожидаемый результат
-                fullName, email, genderMale,
-                phone, dateBirth, subjectCommerce,
-                hobbieSports, pathToImg, address, stateAndCity);
-
-        List<String> actualResult = $(".table").findAll("td").texts(); //фактический результат
-
-        int i = 0;
-        while (i < actualResult.size()) { //цикл для удаления полей из стобца Label
-            actualResult.remove(i);
-            i+=1;
-        }
-        return expectedResult.containsAll(actualResult); //сравниваю 2 коллекции на идентичность
-    }
 
     public void hideFooterAndAds() { //для отключения рекламного блока и футера на маленьком экране, чтобы кнопка Submit была видна
         executeJavaScript("$('footer').remove(); $('#fixedban').remove()");

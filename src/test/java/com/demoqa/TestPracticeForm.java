@@ -2,8 +2,9 @@ package com.demoqa;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.*;
+
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestPracticeForm extends PagePracticeForm{
     @BeforeAll
@@ -56,7 +57,19 @@ public class TestPracticeForm extends PagePracticeForm{
 
         //click submit
         submitButton.click();
+
         //проверка таблицы результата
-        assertTrue(validationTable(),"Ожидалось True");
+        $(".modal-body").shouldHave(
+                text(fullName),
+                text(email),
+                text(genderMale),
+                text(phone),
+                text(dateBirth),
+                text(subjectCommerce),
+                text(hobbieSports),
+                text(pathToImg),
+                text(address),
+                text(stateAndCity)
+        );
     }
 }
