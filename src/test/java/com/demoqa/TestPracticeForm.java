@@ -1,15 +1,14 @@
-package com.demoqa.PracticeForm;
+package com.demoqa;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.Keys;
-
 import static com.codeborne.selenide.Selenide.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class PracticeForm extends PagePracticeForm{
+public class TestPracticeForm extends PagePracticeForm{
     @BeforeAll
     static void configurationTests() {
-        Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = false; //true = не закрывать браузер после тестов
         Configuration.browserSize = "1440x900";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserPosition = "0x0";
@@ -28,12 +27,11 @@ public class PracticeForm extends PagePracticeForm{
         firstName.setValue(name);
         lastName.setValue(surname);
         userEmail.setValue(email);
-        genderMale.click();
+        genderLabelMale.click();
         mobileNumber.setValue(phone);
 
         //Subjects
-        subjectsInput.setValue(subjectEnglish).pressEnter();
-        subjectsInput.setValue(subjectCommerce).sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
+        subjectsInput.setValue(subjectCommerce).pressEnter();
 
         //data birthday
         dataOfBirt.click();
@@ -58,8 +56,7 @@ public class PracticeForm extends PagePracticeForm{
 
         //click submit
         submitButton.click();
-
-        //реализовать првоерки значений из результата в таблице
+        //проверка таблицы результата
+        assertTrue(validationTable(),"Ожидалось True");
     }
-
 }
