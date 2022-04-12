@@ -2,7 +2,6 @@ package com.demoqa.pages.RegForm;
 
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class RegFormLocators {
@@ -19,11 +18,15 @@ public class RegFormLocators {
 
             dataOfBirt = $("#dateOfBirthInput"),
             day = $(".react-datepicker__month"),
-            mounth = $(".react-datepicker__month-select"),
+            month = $(".react-datepicker__month-select"),
             year = $(".react-datepicker__year-select"),
 
             state = $("#state"),
             city = $("#city"),
-            submitButton = $("#submit");
+            submitButton = $("#submit"),
+            closeButton = $("#closeLargeModal"),
+
+            titleTable = $("#example-modal-sizes-title-lg"),
+            tableResult = $(".table-responsive");
 
 }

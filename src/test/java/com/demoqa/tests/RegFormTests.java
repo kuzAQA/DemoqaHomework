@@ -1,21 +1,20 @@
 package com.demoqa.tests;
 
-import com.demoqa.pages.RegForm.Components.RegFormCalendar;
 import com.demoqa.pages.RegForm.RegFormPage;
 import com.demoqa.pages.RegForm.RegFormTestData;
-import com.demoqa.testData.Generator;
-import com.github.javafaker.Faker;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class RegFormTests extends TestBase{
     RegFormPage form = new RegFormPage();
     RegFormTestData data = new RegFormTestData();
+    RegFormPage checks = new RegFormPage();
+
 
     @Test
     @DisplayName("Позитивный тест")
     void positiveTest() {
-
+        //set values in the table
         form
                 .openPage()
                 .setFirstName(data.getFirstName())
@@ -29,21 +28,20 @@ public class RegFormTests extends TestBase{
                 .setPicture(data.getPathToPicture())
                 .setAddress(data.getAddress())
                 .setStateAndCity(data.getState(), data.getCity())
-                .submitClick();
+                .clickSubmitButton();
 
-
-        //проверка таблицы результата
-//        $(".modal-body").shouldHave(
-//                text(fullName),
-//                text(email),
-//                text(genderMale),
-//                text(phone),
-//                text(dateBirth),
-//                text(subjectCommerce),
-//                text(hobbieSports),
-//                text(pathToImg),
-//                text(address),
-//                text(stateAndCity)
-//        );
+        //assertions
+        checks
+                .checkResulnTables("Student Name", data.getExpectedFullName())
+                .checkResulnTables("Student Email", data.getEmail())
+                .checkResulnTables("Gender", data.getGender())
+                .checkResulnTables("Mobile", data.getPhone())
+                .checkResulnTables("Date of Birth", data.getExpectedBirthDate())
+                .checkResulnTables("Subjects", data.getSubject())
+                .checkResulnTables("Hobbies", data.getHobby())
+                .checkResulnTables("Picture", data.getPictuteName())
+                .checkResulnTables("Address", data.getAddress())
+                .checkResulnTables("State and City", data.getExpectedStateAndCity())
+                .clickCloseButton();
     }
 }

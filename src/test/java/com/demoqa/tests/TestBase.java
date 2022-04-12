@@ -1,12 +1,7 @@
 package com.demoqa.tests;
 
 import com.codeborne.selenide.Configuration;
-import com.demoqa.testData.Generator;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import static com.codeborne.selenide.Selenide.*;
-
-import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class TestBase {
     @BeforeAll
@@ -16,7 +11,4 @@ public class TestBase {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserPosition = "0x0";
     }
-
-    @BeforeEach
-    void setUp() {}
 }

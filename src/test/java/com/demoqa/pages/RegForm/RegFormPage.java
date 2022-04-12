@@ -4,7 +4,9 @@ import com.demoqa.pages.RegForm.Components.RegFormCalendar;
 import com.demoqa.pages.RegForm.Components.SelectStateAndCity;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 import static com.codeborne.selenide.Selenide.open;
@@ -20,8 +22,12 @@ public class RegFormPage{
         executeJavaScript("$('footer').remove(); $('#fixedban').remove()");
         return this;
     }
-    public void submitClick() {
+    public void clickSubmitButton() {
         locator.submitButton.click();
+        locator.titleTable.shouldHave(text("Thanks for submitting the form"));
+    }
+    public void clickCloseButton() {
+        locator.closeButton.click();
     }
     public RegFormPage setFirstName(String firstName) {
         locator.firstNameInput.setValue(firstName);
@@ -71,5 +77,14 @@ public class RegFormPage{
         locator.city.click();
         stateAndCity.setCity(city);
         return this;
+    }
+    public RegFormPage checkResulnTables(String key, String value) {
+        locator.tableResult.$(byText(key)).parent().shouldHave(text(value));
+        System.out.println(key + " : " + value);
+        return this;
+    }
+    public void getTable() {
+        HashMap<String, String> table;
+        locator.tableResult.getTagName();
     }
 }
