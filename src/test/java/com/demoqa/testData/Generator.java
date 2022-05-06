@@ -60,12 +60,21 @@ public class Generator {
     }
 
     public static String randomCity(String state) {
-        return switch (state) {
-            case "NCR" -> NCRCities.values()[(int) (Math.random() * NCRCities.values().length)].toString();
-            case "Haryana" -> HaryanaCities.values()[(int) (Math.random() * HaryanaCities.values().length)].toString();
-            case "Rajasthan" -> RajasthanCities.values()[(int) (Math.random() * RajasthanCities.values().length)].toString();
-            default -> "";
-        };
+        String result;
+        switch (state) {
+            case "NCR":
+                result = NCRCities.values()[(int) (Math.random() * NCRCities.values().length)].toString();
+                break;
+            case "Haryana":
+                result = HaryanaCities.values()[(int) (Math.random() * HaryanaCities.values().length)].toString();
+                break;
+            case "Rajasthan":
+                result = RajasthanCities.values()[(int) (Math.random() * RajasthanCities.values().length)].toString();
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + state);
+        }
+        return result;
     }
 
 }
