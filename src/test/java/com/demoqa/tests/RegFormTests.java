@@ -2,9 +2,12 @@ package com.demoqa.tests;
 
 import com.demoqa.pages.RegForm.RegFormPage;
 import com.demoqa.pages.RegForm.RegFormTestData;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
+@Owner("Igor Kuznetsov")
+@Feature("Тест заполнения формы Demoqa")
 public class RegFormTests extends TestBase{
     RegFormPage form = new RegFormPage();
     RegFormTestData data = new RegFormTestData();
@@ -12,7 +15,7 @@ public class RegFormTests extends TestBase{
 
 
     @Test
-    @DisplayName("Позитивный тест")
+    @DisplayName("Заполнение формы")
     void positiveTest() {
         //set values in the table
         form
