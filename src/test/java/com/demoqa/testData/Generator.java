@@ -29,7 +29,7 @@ public class Generator {
     }
 
     public static String randomGender() {
-        return Gender.values()[ (int)(Math.random() * Gender.values().length) ].toString();
+        return Gender.values()[(int) (Math.random() * Gender.values().length)].toString();
     }
 
     public static String randomPhoneNumber() {
@@ -37,11 +37,11 @@ public class Generator {
     }
 
     public static String randomSubject() {
-        return Subjects.values()[ (int)(Math.random() * Subjects.values().length) ].toString();
+        return Subjects.values()[(int) (Math.random() * Subjects.values().length)].toString();
     }
 
     public static String randomHobbies() {
-        return Hobbies.values()[ (int)(Math.random() * Hobbies.values().length) ].toString();
+        return Hobbies.values()[(int) (Math.random() * Hobbies.values().length)].toString();
     }
 
     public static String randomAddress() {
@@ -56,7 +56,7 @@ public class Generator {
     }
 
     public static String randomState() {
-        return State.values()[ (int)(Math.random() * State.values().length) ].toString();
+        return State.values()[(int) (Math.random() * State.values().length)].toString();
     }
 
     public static String randomCity(String state) {
