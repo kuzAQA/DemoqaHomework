@@ -25,7 +25,7 @@ public class TestBase {
         Configuration.browserSize = "1700x920";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserPosition = "0x0";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+//        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
     @AfterEach
     void addAttachement() {

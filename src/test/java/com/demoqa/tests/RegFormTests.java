@@ -28,7 +28,7 @@ public class RegFormTests extends TestBase{
         step("Задаем фамилию", () -> {
             form.setLastName(data.getLastName());
         });
-        step("Задаем emaik", () -> {
+        step("Задаем email", () -> {
             form.setEmail(data.getEmail());
         });
         step("Выбираем гендер", () -> {
