@@ -7,7 +7,8 @@ public class Configproperties {
     @Test
     @Tag("prop")
     void setProp(){
-        String browser = System.getProperty("browser", "chrome");
+        System.setProperty("browser", "safari");
+        String browser = System.getProperty("browser");
         String version = System.getProperty("version", "100");
         System.out.println(browser);
         System.out.println(version);
