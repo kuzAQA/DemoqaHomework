@@ -13,9 +13,9 @@ repositories {
 dependencies {
     testImplementation (
             'org.junit.jupiter:junit-jupiter:5.8.2',
-            'com.codeborne:selenide:6.4.0',
+            'com.codeborne:selenide:6.6.3',
             'com.github.javafaker:javafaker:1.0.2',
-            'io.qameta.allure:allure-selenide:2.17.3'
+            'io.qameta.allure:allure-selenide:2.18.1'
     )
     testRuntimeOnly(
             'org.slf4j:slf4j-simple:1.7.36'
@@ -24,8 +24,8 @@ dependencies {
 
 allure{
     report{
-        version.set("2.17.3")
         // версия allure report
+        version.set("2.17.3")
     }
 
     adapter{
@@ -41,4 +41,22 @@ allure{
 
 test {
     useJUnitPlatform()
+}
+
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+task prop (type: Test) {
+    useJUnitPlatform{
+        includeTags "prop"
+    }
 }
