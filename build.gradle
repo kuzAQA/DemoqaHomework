@@ -15,7 +15,8 @@ dependencies {
             'org.junit.jupiter:junit-jupiter:5.8.2',
             'com.codeborne:selenide:6.6.3',
             'com.github.javafaker:javafaker:1.0.2',
-            'io.qameta.allure:allure-selenide:2.18.1'
+            'io.qameta.allure:allure-selenide:2.18.1',
+            'org.aeonbits.owner:owner:1.0.12'
     )
     testRuntimeOnly(
             'org.slf4j:slf4j-simple:1.7.36'
@@ -58,5 +59,11 @@ tasks.withType(Test) {
 task prop (type: Test) {
     useJUnitPlatform{
         includeTags "prop"
+    }
+}
+
+task owner(type: Test) {
+    useJUnitPlatform{
+        includeTags "owner"
     }
 }
